@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"path": "../demo"
+		},
+		{
+			"path": "../frontend"
+		},
+		{
+			"path": "../openai"
+		},
+		{
+			"path": "."
+		}
+	]
+}
