@@ -47,7 +47,7 @@ Kategorili ve öncelikli görev yönetimi sağlayan tam kapsamlı bir **Todo Uyg
 ### 1. Back-end (Laravel API)
 
 ```bash
-git clone https://github.com/kullanici/todo-api.git
+git clone https://github.com/fatihkenarda/todo-backend
 cd todo-api
 cp .env.example .env
 composer install
@@ -61,13 +61,11 @@ php artisan serve
 ### 2. Front-end (React)
 
 ```bash
-git clone https://github.com/kullanici/todo-frontend.git
+git clone https://github.com/fatihkenarda/todo-frontend
 cd todo-frontend
 npm install
 npm run dev
 ```
-
-> `REACT_APP_API_BASE_URL=http://localhost:8000/api` olacak şekilde `.env` dosyası eklemeyi unutma.
 
 ---
 
