@@ -1,61 +1,137 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# 📝 Todo Uygulaması
 
-## About Laravel
+Kategorili ve öncelikli görev yönetimi sağlayan tam kapsamlı bir **Todo Uygulaması**. Görevleri oluşturabilir, filtreleyebilir, kategorilere ayırabilir, durum ve önceliklere göre yönetebilirsiniz. Uygulama hem **Laravel API (Back-end)** hem de **React (Front-end)** ile geliştirilmiştir.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Özellikler
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- ✅ Todo listeleme, arama, filtreleme ve sıralama  
+- 🗂️ Kategori yönetimi (renk destekli)
+- 📆 Bitiş tarihi seçimi ve yaklaşan görevler
+- 🔄 Görev durumu güncelleme (Beklemede, Devam Ediyor, Tamamlandı, İptal Edildi)
+- ⚡ Öncelik seviyeleri (Düşük, Orta, Yüksek)
+- 📊 Dashboard istatistikleri
+- ♻️ Soft delete ve duruma göre silme
+- 🔒 XSS koruması ve input validation
+- 🔁 Repository & Service Layer mimarisi (Laravel)
+- 🌈 Tailwind CSS ile şık kullanıcı arayüzü
 
-## Learning Laravel
+---
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## 🧰 Kullanılan Teknolojiler
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+### Back-end (Laravel API)
+- Laravel 10+
+- PHP 8.1+
+- MySQL
+- Sanctum (JWT Auth alternatifi)
+- Repository + Service Layer
+- Form Request Validations
+- CORS + Middleware + Resource Wrappers
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Front-end (React)
+- React 18+
+- React Router v6+
+- React Hook Form + Yup
+- Axios
+- Tailwind CSS
+- react-datepicker
+- react-icons
 
-## Laravel Sponsors
+---
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## ⚙️ Kurulum Adımları
 
-### Premium Partners
+### 1. Back-end (Laravel API)
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+```bash
+git clone https://github.com/kullanici/todo-api.git
+cd todo-api
+cp .env.example .env
+composer install
+php artisan key:generate
+php artisan migrate --seed
+php artisan serve
+```
 
-## Contributing
+> `.env` dosyasına uygun şekilde veritabanı bilgilerini girin.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+### 2. Front-end (React)
 
-## Code of Conduct
+```bash
+git clone https://github.com/kullanici/todo-frontend.git
+cd todo-frontend
+npm install
+npm run dev
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+> `REACT_APP_API_BASE_URL=http://localhost:8000/api` olacak şekilde `.env` dosyası eklemeyi unutma.
 
-## Security Vulnerabilities
+---
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## ▶️ Uygulamayı Çalıştırma
 
-## License
+1. Terminal 1: Laravel API  
+   `php artisan serve` → `http://localhost:8000`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+2. Terminal 2: React Frontend  
+   `npm run dev` → `http://localhost:5173`
+
+---
+
+## 📡 API Dokümantasyonu
+
+Tüm uç noktalar detaylı açıklamalarıyla birlikte aşağıdaki JSON formatında döner:
+
+```json
+{
+  "status": true,
+  "message": "İşlem başarılı",
+  "data": { ... },
+  "meta": { ... },
+  "errors": null
+}
+```
+
+### Örnek Uç Noktalar:
+- `GET /api/todos`
+- `POST /api/todos`
+- `GET /api/todos/statistics`
+- `GET /api/todos/upcoming`
+- `GET /api/categories`
+- `POST /api/categories`
+
+📝 Daha fazlası için [API Dökümantasyon Sayfası](http://localhost:8000/api/docs) *(varsa Swagger veya Postman linki ekleyebilirsin)*
+
+---
+
+## 💡 Örnek Kullanım Senaryoları
+
+- **Dashboard:** Günlük görev yükünüzü istatistiksel olarak görüntüleyin.
+- **Todo Filtreleme:** Tamamlanan görevleri ve yaklaşan bitiş tarihli işleri listeleyin.
+- **Kategori Yönetimi:** Renkli etiketlerle görevlerinizi gruplandırın.
+- **Durum Değiştirme:** Görevlerinizi hızla "Devam Ediyor" veya "Tamamlandı" durumuna alın.
+
+---
+
+## 📁 Proje Yapısı
+
+```bash
+todo-api/            # Laravel API
+ └── app/
+ └── routes/api.php
+ └── database/seeders/
+ └── app/Repositories/
+ └── app/Services/
+
+todo-frontend/       # React Frontend
+ └── src/
+     └── components/
+     └── pages/
+     └── services/
+     └── hooks/
+     └── store/
+```
+
