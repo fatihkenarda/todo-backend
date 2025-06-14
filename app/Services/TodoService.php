@@ -14,10 +14,16 @@ class TodoService
         $this->todoRepository = $todoRepository;
     }
 
-    public function list(array $filters, string $sortField, string $sortOrder, int $limit, int $page = 1)
-    {
-        return $this->todoRepository->getTodos($filters, $sortField, $sortOrder, $limit, $page);
-    }
+    public function list(array $filters, string $sortField, string $sortOrder, int $limit, int $page)
+{
+    $query = Todo::with('categories') // <--- ilişkileri eager load ediyoruz
+        ->when($filters['status'] ?? null, fn($q, $status) => $q->where('status', $status))
+        ->when($filters['priority'] ?? null, fn($q, $priority) => $q->where('priority', $priority))
+        ->when($filters['search'] ?? null, fn($q, $search) => $q->where('title', 'like', "%{$search}%"))
+        ->orderBy($sortField, $sortOrder);
+
+    return $query->paginate($limit, ['*'], 'page', $page);
+}
 
         public function create(array $data)
     {
